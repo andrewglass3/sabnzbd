@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  sab:
+    image: linuxserver/sabnzbd
+    restart: always
+    volumes:
+     - /home/andrew/docker/sabnzbd/config:/config
+     - /home/andrew/docker/sabnzbd/downloads:/downloads
+     - /home/andrew/docker/sabnzbd/incomplete:/incomplete-downloads
+
+    ports:
+       - 8080:8080
+       - 9090:9090
+
+    environment:
+       - PGID=100
+       - PUID=1000
